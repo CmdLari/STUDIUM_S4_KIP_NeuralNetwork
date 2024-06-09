@@ -6,10 +6,15 @@ import java.util.List;
 
 public class Client {
 
+    private static final int FILES_PER_FOLDER = 100;
+    private static final int EPOCH_COUNT = 1000;
+    private static final String TRAINING_FILES_PATH = "assets/Training";
+    private static final String TEST_IMAGE = "./assets/974.jpg";
+
     public static void main(String[] args) {
 
 
-        List<int[]> imageArrays = FileUtil.readImagesFromDirectory("assets/Training");
+        List<int[]> imageArrays = FileUtil.readImagesFromDirectory(TRAINING_FILES_PATH);
 
         List<int[]> answers = new ArrayList<>();
         int[] answer0 = new int[] {1, 0, 0, 0, 0, 0, 0, 0, 0, 0};
@@ -23,7 +28,7 @@ public class Client {
         int[] answer8 = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 1, 0};
         int[] answer9 = new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 1};
 
-        for (int i = 0; i<10; i++){
+        for (int i = 0; i<FILES_PER_FOLDER; i++){
              answers.add(answer0);
         }
 
@@ -63,19 +68,18 @@ public class Client {
             answers.add(answer9);
         }
 
-        int epochCount= 5;
 
         Network network;
         try {
-            network=new Network(epochCount);
+            network=new Network(EPOCH_COUNT);
         }catch (IOException e){
-            network = new Network(imageArrays.getFirst().length, 10, epochCount);
+            network = new Network(imageArrays.getFirst().length, 10, EPOCH_COUNT);
         }
 
 
         network.train(imageArrays, answers);
 
-        int[] imageArray = FileUtil.readSingleImage("./assets/974.jpg");
+        int[] imageArray = FileUtil.readSingleImage(TEST_IMAGE);
 
         double[] prediction = network.predict(imageArray);
 

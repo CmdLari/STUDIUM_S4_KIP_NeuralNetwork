@@ -17,7 +17,7 @@ public class Network {
      * @param matrixSize Size of the input image (height*width)
      * @param answers Number of possible answer options
      */
-    public Network(int matrixSize, int answers, int epochNr) {
+    public Network(int matrixSize, int answers, int epochCount) {
 
         // HERE NEURONS (INPUT + HIDDEN + OUTPUT
         List<Neuron> neuronsInput = new ArrayList<>();
@@ -44,7 +44,7 @@ public class Network {
         this.neuronsInput = neuronsInput;
         this.neuronsHidden = neuronsHidden;
         this.neuronsOutput = neuronsOutput;
-        this.epochCount = epochNr;
+        this.epochCount = epochCount;
 
         this.allNeurons.addAll(neuronsInput);
         this.allNeurons.addAll(neuronsHidden);
