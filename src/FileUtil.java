@@ -58,7 +58,9 @@ public class FileUtil {
                 stringBuilder.append(neuron.weights[i]).append(";");
             }
             stringBuilder.append(":MatrixSize:").append(neuron.matrixsize).append(":");
+            stringBuilder.append("\n");
         }
+
 
         //hidden
         for (Neuron neuron : hiddenNeurons) {
@@ -68,6 +70,7 @@ public class FileUtil {
                 stringBuilder.append(neuron.weights[i]).append(";");
             }
             stringBuilder.append(":MatrixSize:").append(neuron.matrixsize).append(":");
+            stringBuilder.append("\n");
         }
 
         //output
@@ -78,6 +81,7 @@ public class FileUtil {
                 stringBuilder.append(neuron.weights[i]).append(";");
             }
             stringBuilder.append(":MatrixSize:").append(neuron.matrixsize).append(":");
+            stringBuilder.append("\n");
         }
 
 
