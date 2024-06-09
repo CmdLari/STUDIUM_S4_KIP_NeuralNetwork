@@ -57,27 +57,27 @@ public class FileUtil {
             for (int i = 0; i < neuron.weights.length; i ++) {
                 stringBuilder.append(neuron.weights[i]).append(";");
             }
-            stringBuilder.append(":MatrixSize:").append(neuron.matrixsize);
+            stringBuilder.append(":MatrixSize:").append(neuron.matrixsize).append(":");
         }
 
         //hidden
         for (Neuron neuron : hiddenNeurons) {
-            stringBuilder.append("\nHIDDENNEURON:")
+            stringBuilder.append("HIDDENNEURON:")
                     .append(neuron.bias).append(":");
             for (int i = 0; i < neuron.weights.length; i ++) {
                 stringBuilder.append(neuron.weights[i]).append(";");
             }
-            stringBuilder.append(":MatrixSize:").append(neuron.matrixsize);
+            stringBuilder.append(":MatrixSize:").append(neuron.matrixsize).append(":");
         }
 
         //output
         for (Neuron neuron : outputNeurons) {
-            stringBuilder.append("\nOUTPUTNEURON:")
+            stringBuilder.append("OUTPUTNEURON:")
                     .append(neuron.bias).append(":");
             for (int i = 0; i < neuron.weights.length; i ++) {
                 stringBuilder.append(neuron.weights[i]).append(";");
             }
-            stringBuilder.append(":MatrixSize:").append(neuron.matrixsize);
+            stringBuilder.append(":MatrixSize:").append(neuron.matrixsize).append(":");
         }
 
 
