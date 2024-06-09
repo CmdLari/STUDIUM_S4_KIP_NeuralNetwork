@@ -63,7 +63,7 @@ public class Client {
             answers.add(answer9);
         }
 
-        int epochCount= 100;
+        int epochCount= 5;
 
         Network network;
         try {
@@ -79,6 +79,16 @@ public class Client {
 
         double[] prediction = network.predict(imageArray);
 
+        System.out.println(prettyPred(prediction));
+
+        for(double d : prediction){
+            System.out.println(d);
+        }
+    }
+
+    public static String prettyPred(double[] prediction){
+        String answerEnd;
+
         double zero = prediction[0];
         double one = prediction[1];
         double two = prediction[2];
@@ -90,34 +100,33 @@ public class Client {
         double eight = prediction[8];
         double nine = prediction[9];
 
-        double thisIsIt = Arrays.stream(prediction).max().getAsDouble();
-        String answerEnd;
+        double thisIsIt = Arrays.stream(prediction).max().orElseThrow();
 
         if (thisIsIt==zero){
             answerEnd="Zero";
         }
-        if (thisIsIt==one){
+        else if (thisIsIt==one){
             answerEnd="One";
         }
-        if (thisIsIt==two){
+        else if (thisIsIt==two){
             answerEnd="two";
         }
-        if (thisIsIt==three){
+        else if (thisIsIt==three){
             answerEnd="Three";
         }
-        if (thisIsIt==four){
+        else if (thisIsIt==four){
             answerEnd="Four";
         }
-        if (thisIsIt==five){
+        else if (thisIsIt==five){
             answerEnd="Five";
         }
-        if (thisIsIt==six){
+        else if (thisIsIt==six){
             answerEnd="Six";
         }
-        if (thisIsIt==seven){
+        else if (thisIsIt==seven){
             answerEnd="Seven";
         }
-        if (thisIsIt==eight){
+        else if (thisIsIt==eight){
             answerEnd="Eight";
         }
         else {
@@ -126,8 +135,6 @@ public class Client {
 
         System.out.println("the number on the image is: " + answerEnd);
 
-        for(double d : prediction){
-            System.out.println(d);
-        }
+        return answerEnd;
     }
 }
