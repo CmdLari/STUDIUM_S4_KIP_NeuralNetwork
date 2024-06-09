@@ -9,7 +9,7 @@ public class Client {
     private static final int FILES_PER_FOLDER = 100;
     private static final int EPOCH_COUNT = 1000;
     private static final String TRAINING_FILES_PATH = "assets/Training";
-    private static final String TEST_IMAGE = "./assets/974.jpg";
+    private static final String TEST_IMAGE = "./assets/9325.jpg";
 
     public static void main(String[] args) {
 
@@ -77,7 +77,7 @@ public class Client {
         }
 
 
-        network.train(imageArrays, answers);
+//        network.train(imageArrays, answers);
 
         int[] imageArray = FileUtil.readSingleImage(TEST_IMAGE);
 
