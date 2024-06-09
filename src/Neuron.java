@@ -5,19 +5,22 @@ public class Neuron {
     public double bias;
     public double[] oldWeights;
     public double oldBias;
-    private int matrixsize;
+    public int matrixsize;
 
     public Neuron(int matrixSize) {
         Random random = new Random();
         this.bias = random.nextDouble(-1, 1);
-        double[] weights = new double[matrixSize];
-        this.weights=weights;
-        this.matrixsize = matrixSize;
 
+        double[] weights = new double[matrixSize];
         for (int i = 0; i < matrixSize; i++) {
             double weight = random.nextDouble(-1, 1);
             weights[i] = weight;
         }
+        this.weights=weights;
+        this.matrixsize = matrixSize;
+        this.oldWeights = this.weights;
+        this.oldBias = this.bias;
+
     }
 
     public Neuron(int matrixSize, double[] weights, double bias) {
@@ -26,6 +29,8 @@ public class Neuron {
         this.bias = bias;
         this.weights=weights;
         this.matrixsize = matrixSize;
+        this.oldWeights = this.weights;
+        this.oldBias = this.bias;
     }
 
     public double compute(double[] input) {
@@ -36,7 +41,7 @@ public class Neuron {
         }
         outputPreActivation += this.bias;
 
-        return Activation.sigmoid(outputPreActivation);
+        return Util.sigmoid(outputPreActivation);
     }
 
     public void mutate(){
@@ -44,7 +49,7 @@ public class Neuron {
         int propertyToChange = random.nextInt(0, this.matrixsize+1);
         double changeFactor = random.nextDouble(-1, 1);
         if (propertyToChange != 0) {
-            this.bias =+ changeFactor;
+            this.bias += changeFactor;
         }
         else {
             this.weights[propertyToChange]+=changeFactor;
