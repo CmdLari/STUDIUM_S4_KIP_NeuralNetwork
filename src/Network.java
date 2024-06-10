@@ -122,7 +122,7 @@ public class Network {
                 predictions.add(i, this.predict(trainingData.get(i)));
             }
 
-            Double thisEpochLoss = Util.meanSquareLoss(answers, predictions);
+            Double thisEpochLoss = Util.sumSquareLoss(answers, predictions);
 
             if (bestEpochLoss == null){
                 bestEpochLoss = thisEpochLoss;

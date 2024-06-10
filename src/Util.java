@@ -7,7 +7,7 @@ public class Util {
         return 1 / (1 + Math.exp(-outputPreActivation));
     }
 
-    public static Double meanSquareLoss(List<int[]> correctAnswers, List<double[]> predictedAnswers) {
+    public static Double sumSquareLoss(List<int[]> correctAnswers, List<double[]> predictedAnswers) {
 
         double sumSquares = 0;
         for (int i = 0; i < correctAnswers.size(); i++) {

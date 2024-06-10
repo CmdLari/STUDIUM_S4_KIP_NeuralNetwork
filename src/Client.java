@@ -32,39 +32,39 @@ public class Client {
              answers.add(answer0);
         }
 
-        for (int i = 0; i<10; i++){
+        for (int i = 0; i<FILES_PER_FOLDER; i++){
             answers.add(answer1);
         }
 
-        for (int i = 0; i<10; i++){
+        for (int i = 0; i<FILES_PER_FOLDER; i++){
             answers.add(answer2);
         }
 
-        for (int i = 0; i<10; i++){
+        for (int i = 0; i<FILES_PER_FOLDER; i++){
             answers.add(answer3);
         }
 
-        for (int i = 0; i<10; i++){
+        for (int i = 0; i<FILES_PER_FOLDER; i++){
             answers.add(answer4);
         }
 
-        for (int i = 0; i<10; i++){
+        for (int i = 0; i<FILES_PER_FOLDER; i++){
             answers.add(answer5);
         }
 
-        for (int i = 0; i<10; i++){
+        for (int i = 0; i<FILES_PER_FOLDER; i++){
             answers.add(answer6);
         }
 
-        for (int i = 0; i<10; i++){
+        for (int i = 0; i<FILES_PER_FOLDER; i++){
             answers.add(answer7);
         }
 
-        for (int i = 0; i<10; i++){
+        for (int i = 0; i<FILES_PER_FOLDER; i++){
             answers.add(answer8);
         }
 
-        for (int i = 0; i<10; i++){
+        for (int i = 0; i<FILES_PER_FOLDER; i++){
             answers.add(answer9);
         }
 
@@ -77,7 +77,8 @@ public class Client {
         }
 
 
-//        network.train(imageArrays, answers);
+        //network.train(imageArrays, answers);
+
 
         int[] imageArray = FileUtil.readSingleImage(TEST_IMAGE);
 
